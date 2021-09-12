@@ -1,5 +1,5 @@
 # Next-POI-Recommendation
-2017-2021 next poi recommendation papers
+2017-2021 "next poi recommendation" papers
 # AAAI
 ## 2019
 ### Where to Go Next: A Spatio-Temporal Gated Network for Next POI Recommendation
