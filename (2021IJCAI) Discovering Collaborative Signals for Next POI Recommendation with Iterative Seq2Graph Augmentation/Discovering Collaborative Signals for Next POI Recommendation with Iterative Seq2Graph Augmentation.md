@@ -29,7 +29,7 @@
 **category-wise**转换比**POI-wise**转换更稠密，作者提出**多任务学习**机制来让模型同时预测next POI以及对应的category。作者将最后一个POI的embedding **h**和用户短期时间偏好**s**进行对应元素相乘操作(**将用户时间偏好和当前实例偏好融合**)，再和用户长期偏好embedding **u**进行拼接后作为一个全连接层的输入，预测**next POI**。同样地，作者将最后一个POI对应的类型embedding **c**和用户长期偏好embedding **u**拼接后作为一个全连接层的输入，预测**next POI category**。作者认为设计预测next POI category这个辅助task是为了提高模型捕获**categoty-wise**转换的能力。
 #### Model Optimisation
 使用cross-entropy损失函数来量化**POI和categoty**预测任务.
-
+![image](https://github.com/kevin-xuan/Next-POI-Recommendation/blob/main/(2021IJCAI)%20Discovering%20Collaborative%20Signals%20for%20Next%20POI%20Recommendation%20with%20Iterative%20Seq2Graph%20Augmentation/Figure2.png)
 ###  Question
 用户长期偏好embedding **u**怎么来的？
 
