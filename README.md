@@ -40,9 +40,6 @@
 ## SIGKDD
 ### 2021
 #### Curriculum Meta-Learning for Next POI Recommendation
-## TKDE
-### 2020
-#### Where to Go Next: A Spatio-Temporal Gated Network for Next POI Recommendation
 ## TOIS
 ### 2019
 #### Next and Next New POI Recommendation via Latent Behavior Pattern Inference
