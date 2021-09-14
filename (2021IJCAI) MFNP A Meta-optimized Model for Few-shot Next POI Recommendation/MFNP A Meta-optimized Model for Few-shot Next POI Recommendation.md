@@ -6,9 +6,9 @@
 作者认为用户在不同区域应该有不同的偏好，提出了用户兴趣漂移这种现象，而现有的基于meta-learning的方法是通过用户特定的设置来捕获用户偏好，忽视了这种现象，而且不能在region-level建模用户偏好。因此作者使用meta-learning设计了user-specific和region-specific的任务来学得region-independent的用户偏好和region-dependent的人群偏好，通过融合这两种偏好来捕获region-aware用户偏好，用于few-shot next POI推荐。对于region-independent的用户偏好，把为每个用户推荐POI看作一个学习任务，为每个用户构建一个meta-learner，学习具有较强泛化能力的全局参数来初始化每个任务的模型参数，然后这些参数学习每个用户的check-in数据从而学得task-specific参数。对于region-dependent的人群偏好，相似的用户应该有相似的行为模式，人群偏好从这些相似的用户中获得。先用聚类算法将用户分组，然后采用自适应网络平衡不同用户组的人群偏好的重要性。最后将这两种偏好融合获得region-aware的用户偏好。
 
 ### Definition
-区域划分：利用Kmeans算法根据地理距离将所有POI聚类成K(30)个区域。
-人群划分：划分成6个不同行为模式的人群。
-区域轨迹集：轨迹就是一个用户的check-in序列，在某个区域r的所有用户的轨迹构成了区域r的轨迹集。
+* 区域划分：利用Kmeans算法根据地理距离将所有POI聚类成K(30)个区域。
+* 人群划分：划分成6个不同行为模式的人群。
+* 区域轨迹集：轨迹就是一个用户的check-in序列，在某个区域r的所有用户的轨迹构成了区域r的轨迹集。
 
 ### Methodology
 模型包括3个模块：
