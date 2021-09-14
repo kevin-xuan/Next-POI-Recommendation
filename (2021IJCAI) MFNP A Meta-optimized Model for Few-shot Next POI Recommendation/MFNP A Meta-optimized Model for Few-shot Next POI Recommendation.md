@@ -41,7 +41,7 @@ meta优化的目的是最小化查询集的预期损失。在支持集训练完�
 ### Question
 * 公式(4)的HDBSCAN和公式(8)的geo-nonlocal operation不懂
 * MAML-based模型不懂。
-* Meta模型的局部参数如何用来优化全局参数还是不太懂。
+* Meta模型的局部参数如何用来优化全局参数还是不太懂。每个用户建立一个meta-learner，这种Meta模型是类似集成学习这种吗？将所有用户的meta-learner集成得到最终Meta模型，用该Meta模型在查询集上的loss来优化全局参数吗？
 
 ### Preliminary
 
