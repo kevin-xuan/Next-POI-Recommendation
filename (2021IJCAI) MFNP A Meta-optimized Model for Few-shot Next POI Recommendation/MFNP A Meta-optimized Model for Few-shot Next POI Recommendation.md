@@ -17,7 +17,7 @@
 * prediction模块：预测用户感兴趣的POI。
 
 #### User-specific Preference Modelling
-使用标准的LSTM网络学习用户check-in序列的时间关系，文中输入x指对应POI的embedding向量，但怎么来的没有说。但是LSTM不能捕获离散的POI之间的空间关系，因此使用geo-dilated LSTM来学习序列的空间关系。geo-dilated LSTM使用不同的skip长度从check-in序列中选择POI作为输入，这个skip长度是根据地理因素自动决定的。最终，region-independent的用户偏好是LSTM和geo-dilated LSTM所学得的向量的平均值p。
+使用标准的LSTM网络学习用户check-in序列的时间关系，文中LSTM网络的输入x指对应POI的embedding向量，但怎么来的没有说。但是LSTM不能捕获离散的POI之间的空间关系，因此使用geo-dilated LSTM来学习序列的空间关系。geo-dilated LSTM使用不同的skip长度从check-in序列中选择POI作为输入，这个skip长度是根据地理因素自动决定的。最终，region-independent的用户偏好是LSTM和geo-dilated LSTM所学得的向量的平均值p。
 
 #### Region-specific Preference Modelling
 给定某个用户u，用所学得的region-independent的偏好p作为输入HDBSCAN算法的输入得到用户u属于哪个人群，根据用户u的check-in序列的当前(最后一个)POI，找到它对应的区域r，再找到区域r的轨迹集，从中确定与u属于同一人群的用户的轨迹，以时间顺序排序所有轨迹，用T表示排序后的轨迹集，使用LSTM网络来学习每个轨迹的所有POI的信息。
