@@ -3,7 +3,7 @@
 ### Innovation
 之前的研究认为每个POI序列是独立的，所学得的POI embedding只与该序列中的其他POI有关，忽略了来自其他序列的POI的影响，即**协同信号**。另外，**稀疏**的POI-POI转换也会限制模型学得有效的序列模式，从而限制学得高质量的POI embedding。
 
-因此，作者提出了**Seq2Graph**，将graph这种数据结构引入到sequence中。该序列中的POI依然是按时间顺序表示的，且每个POI的“neighbour”结点以及“边”是从其他序列观察到的。这样，协同信号就能被用来学得高质量的POI embedding。
+因此，作者提出了**Seq2Graph**，将graph这种数据结构引入到sequence中。该序列中的POI依然是按时间顺序表示的，且每个POI的“neighbour”结点以及“边”是从其他序列观察到的。这样，协同信号就能被用来学得高质量的POI embedding。**Figure 1**展示了这个过程。
 
 为了进一步减缓**数据稀疏性**所造成的影响，作者提出去学习**POI类型**之间的转换，因为**类型**相对POI来说更少，类型间的转换就显得更**稠密**。
 ![image](https://github.com/kevin-xuan/Next-POI-Recommendation/blob/main/(2021IJCAI)%20Discovering%20Collaborative%20Signals%20for%20Next%20POI%20Recommendation%20with%20Iterative%20Seq2Graph%20Augmentation/Figure1.png)
@@ -28,7 +28,7 @@
 #### Next POI and Category Prediction
 **category-wise**转换比**POI-wise**转换更稠密，作者提出**多任务学习**机制来让模型同时预测next POI以及对应的category。作者将最后一个POI的embedding **h**和用户短期时间偏好**s**进行对应元素相乘操作(**将用户时间偏好和当前实例偏好融合**)，再和用户长期偏好embedding **u**进行拼接后作为一个全连接层的输入，预测**next POI**。同样地，作者将最后一个POI对应的类型embedding **c**和用户长期偏好embedding **u**拼接后作为一个全连接层的输入，预测**next POI category**。作者认为设计预测next POI category这个辅助task是为了提高模型捕获**categoty-wise**转换的能力。
 #### Model Optimisation
-使用cross-entropy损失函数来量化**POI和categoty**预测任务.
+使用cross-entropy损失函数来量化**POI和categoty**预测任务，**Figure 2**展示了整个模型的framework。
 ![image](https://github.com/kevin-xuan/Next-POI-Recommendation/blob/main/(2021IJCAI)%20Discovering%20Collaborative%20Signals%20for%20Next%20POI%20Recommendation%20with%20Iterative%20Seq2Graph%20Augmentation/Figure2.png)
 ###  Question
 用户长期偏好embedding **u**怎么来的？
