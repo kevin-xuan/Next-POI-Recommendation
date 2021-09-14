@@ -6,7 +6,7 @@
 因此，作者提出了**Seq2Graph**，将graph这种数据结构引入到sequence中。该序列中的POI依然是按时间顺序表示的，且每个POI的“neighbour”结点以及“边”是从其他序列观察到的。这样，协同信号就能被用来学得高质量的POI embedding。**Figure 1**展示了这个过程。
 
 为了进一步减缓**数据稀疏性**所造成的影响，作者提出去学习**POI类型**之间的转换，因为**类型**相对POI来说更少，类型间的转换就显得更**稠密**。
-![Figure 1](Next-POI-Recommendation/(2021IJCAI) Discovering Collaborative Signals for Next POI Recommendation with Iterative Seq2Graph Augmentation/FIgure1.png)
+![Figure 1](https://github.com/kevin-xuan/Next-POI-Recommendation/(2021IJCAI) Discovering Collaborative Signals for Next POI Recommendation with Iterative Seq2Graph Augmentation/FIgure1.png)
 
 ###  Methodology
 #### Seq2Graph Augmentation
