@@ -6,7 +6,6 @@
 因此，作者提出了**Seq2Graph**，将graph这种数据结构引入到sequence中。该序列中的POI依然是按时间顺序表示的，且每个POI的“neighbour”结点以及“边”是从其他序列观察到的。这样，协同信号就能被用来学得高质量的POI embedding。**Figure 1**展示了这个过程。
 
 为了进一步减缓**数据稀疏性**所造成的影响，作者提出去学习**POI类型**之间的转换，因为**类型**相对POI来说更少，类型间的转换就显得更**稠密**。
-![Figure 1](https://github.com/kevin-xuan/Next-POI-Recommendation/(2021IJCAI)Discovering Collaborative Signals for Next POI Recommendation with Iterative Seq2Graph Augmentation/FIgure1.png)
 
 ###  Methodology
 #### Seq2Graph Augmentation
@@ -29,14 +28,12 @@
 #### Next POI and Category Prediction
 **category-wise**转换比**POI-wise**转换更稠密，作者提出**多任务学习**机制来让模型同时预测next POI以及对应的category。作者将最后一个POI的embedding **h**和用户短期时间偏好**s**进行对应元素相乘操作(**将用户时间偏好和当前实例偏好融合**)，再和用户长期偏好embedding **u**进行拼接后作为一个全连接层的输入，预测**next POI**。同样地，作者将最后一个POI对应的类型embedding **c**和用户长期偏好embedding **u**拼接后作为一个全连接层的输入，预测**next POI category**。作者认为设计预测next POI category这个辅助task是为了提高模型捕获**categoty-wise**转换的能力。
 #### Model Optimisation
-使用cross-entropy损失函数来量化**POI和categoty**预测任务，**Figure 2**展示了整个模型的framework。
-![Figure 2](/Users/raoxuan/Desktop/papers/Next poi recommendation/summary/Discovering Collaborative Signals for Next POI Recommendation with Iterative Seq2Graph Augmentation/FIgure2.png)
+使用cross-entropy损失函数来量化**POI和categoty**预测任务.
+
 ###  Question
 用户长期偏好embedding **u**怎么来的？
 
 文中提出学习**category-wise**转换，并且在训练过程中也计算了预测category的误差，那**POI-wise**转换体现在哪部分了？**position embedding**是根据每个POI与最后一个POI间的**offset**来赋予embedding，难道是在这体现的**POI-level**转换？照这样理解的话，整个训练过程用到了**category-level**和**POI-level**转换，所以说多了个预测category任务会使模型学得**category-wise**转换模式，增强模型的性能，否则多了个预测category任务为什么会起作用呢？
-
-Figure 2中所学得的embedding **h**包括POI embedding和category embedding，所以用4格来表示，每个部分由2格表示。而每个position embedding应该用2格来表示吧，但Figure 2却画的4格？
 
 Category-Aware Attention Layer那部分使用了MLP和LeakyReLU。是因为描述一个全连接神经网络很麻烦，所以论文直接使用MLP，毕竟功能是一样的？还有为什么使用LeakyReLu文中也没有解释？
 
