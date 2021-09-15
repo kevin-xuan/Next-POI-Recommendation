@@ -34,6 +34,6 @@
 
 
 #### Preliminary
-**Geohash**
+* **Geohash**
 
 Geo-hash是将地球理解为一个(经度，纬度)的二维平面，将平面划分成多个区域，在一定经纬度范围内的POI属于同一个区域
