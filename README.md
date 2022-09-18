@@ -1,4 +1,4 @@
-# Next-POI-Recommendation
+# Next-POI-Recommendation (Updating...)
 2017-2022 "next poi recommendation" papers
 
 ## AAAI
