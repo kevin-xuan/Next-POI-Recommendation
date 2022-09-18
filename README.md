@@ -1,5 +1,6 @@
 # Next-POI-Recommendation
-2017-2021 "next poi recommendation" papers
+2017-2022 "next poi recommendation" papers
+'''
 ## AAAI
 ### 2019
 #### Where to Go Next: A Spatio-Temporal Gated Network for Next POI Recommendation
@@ -54,3 +55,4 @@
 ### 2021
 #### STAN: Spatio-Temporal Attention Network for Next Location Recommendation
 #### HOPE:ahybriddeepneuralmodelforout-of-town next POI recommendation
+'''
